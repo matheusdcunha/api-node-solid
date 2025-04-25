@@ -12,12 +12,16 @@
   "author": "Matheus da Cunha",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^22.15.0",
-    "tsup": "^8.4.0",
-    "tsx": "^4.19.3",
-    "typescript": "^5.8.3"
+    "@rocketseat/eslint-config": "2.2.2",
+    "@types/node": "22.15.0",
+    "eslint": "8.57.1",
+    "tsup": "8.4.0",
+    "tsx": "4.19.3",
+    "typescript": "5.8.3"
   },
   "dependencies": {
-    "fastify": "^5.3.2"
+    "dotenv": "16.5.0",
+    "fastify": "5.3.2",
+    "zod": "3.24.3"
   }
 }
