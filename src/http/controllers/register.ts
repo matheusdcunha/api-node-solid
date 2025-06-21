@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { UserAlreadyExistError } from '@/services/erros/user-already-exists-error'
-import { makeRegisterService } from '@/services/factories/make-register-services'
+import { makeRegisterService } from '@/services/factories/make-register-service'
 import { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function register(request: FastifyRequest, reply: FastifyReply) {

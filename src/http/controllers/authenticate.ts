@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { InvalidCredentialsError } from '@/services/erros/invalid-credentials-error'
 import { FastifyReply, FastifyRequest } from 'fastify'
-import { makeAuthenticateService } from '@/services/factories/make-authenticate-services'
+import { makeAuthenticateService } from '@/services/factories/make-authenticate-service'
 
 export async function authenticate(
   request: FastifyRequest,
