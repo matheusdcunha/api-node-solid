@@ -28,14 +28,8 @@ describe('History (e2e)', () => {
 
     await prisma.checkIn.createMany({
       data: [
-        {
-          gym_id: gym.id,
-          user_id: user.id,
-        },
-        {
-          gym_id: gym.id,
-          user_id: user.id,
-        },
+        { gym_id: gym.id, user_id: user.id },
+        { gym_id: gym.id, user_id: user.id },
       ],
     })
 
@@ -46,17 +40,16 @@ describe('History (e2e)', () => {
 
     expect(response.statusCode).toEqual(200)
     expect(response.body.checkIns).toHaveLength(2)
-    expect(response.body.checkIns).toEqual([
-      expect.objectContaining({
+    
+    // Verificar se os check-ins contêm as propriedades esperadas
+    response.body.checkIns.forEach((checkIn: any) => {
+      expect(checkIn).toMatchObject({
         gym_id: gym.id,
         user_id: user.id,
-        created_at: expect.any(String),
-      }),
-      expect.objectContaining({
-        gym_id: gym.id,
-        user_id: user.id,
-        created_at: expect.any(String),
-      }),
-    ])
+      })
+      expect(checkIn).toHaveProperty('id')
+      expect(checkIn).toHaveProperty('created_at')
+      expect(checkIn).toHaveProperty('validated_at')
+    })
   })
 })
